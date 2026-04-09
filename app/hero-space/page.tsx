@@ -128,7 +128,7 @@ export default function HeroSpacePage() {
 
   return (
     <section className="relative isolate mx-auto flex w-full max-w-6xl flex-col gap-6 overflow-hidden px-4 py-8 sm:px-6">
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,_rgba(252,211,77,0.16),_transparent_45%),radial-gradient(circle_at_bottom_right,_rgba(34,197,94,0.13),_transparent_45%)]" />
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,_rgba(255,195,113,0.2),_transparent_44%),radial-gradient(circle_at_bottom_right,_rgba(116,132,255,0.16),_transparent_38%)]" />
 
       <header className="space-y-2">
         <p className="text-xs uppercase tracking-[0.24em] text-muted-foreground">Hero Space</p>
@@ -141,23 +141,18 @@ export default function HeroSpacePage() {
         </p>
       </header>
 
-      <Card className="border border-primary/30 bg-gradient-to-br from-amber-300/10 via-transparent to-emerald-300/10">
+      <Card className="border border-border/70 bg-gradient-to-br from-amber-300/10 via-transparent to-indigo-300/10">
         <CardHeader>
           <CardTitle>Upload Resume (Document or Image)</CardTitle>
         </CardHeader>
         <CardContent className="space-y-3">
-          <div className="rounded-xl border border-dashed border-primary/40 bg-background/40 p-4">
+          <div className="rounded-xl border border-dashed border-white/25 bg-black/25 p-4">
             <p className="text-sm text-muted-foreground">
               Use file upload for ATS checks instead of manual text copy. We run AI vision
               extraction for resume images before scoring.
             </p>
             <div className="mt-3 flex flex-wrap items-center gap-3">
-              <Button
-                size="lg"
-                variant="secondary"
-                disabled={uploading}
-                onClick={() => fileInputRef.current?.click()}
-              >
+              <Button size="lg" variant="secondary" disabled={uploading} onClick={() => fileInputRef.current?.click()}>
                 {uploading ? "Reading file..." : "Upload resume file"}
               </Button>
               <p className="text-xs text-muted-foreground">
@@ -196,7 +191,7 @@ export default function HeroSpacePage() {
           </CardHeader>
           <CardContent>
             <textarea
-              className="min-h-80 w-full rounded-md border border-border bg-background p-3 text-sm outline-none transition focus:border-primary"
+              className="min-h-80 w-full rounded-md border border-border/80 bg-black/35 p-3 text-sm outline-none transition focus:border-white/60"
               value={resumeText}
               onChange={(event) => setResumeText(event.target.value)}
               placeholder="Paste resume text..."
@@ -210,7 +205,7 @@ export default function HeroSpacePage() {
           </CardHeader>
           <CardContent>
             <textarea
-              className="min-h-80 w-full rounded-md border border-border bg-background p-3 text-sm outline-none transition focus:border-primary"
+              className="min-h-80 w-full rounded-md border border-border/80 bg-black/35 p-3 text-sm outline-none transition focus:border-white/60"
               value={jobDescription}
               onChange={(event) => setJobDescription(event.target.value)}
               placeholder="Paste job description..."
@@ -261,10 +256,7 @@ export default function HeroSpacePage() {
               <CardContent className="flex flex-wrap gap-2">
                 {result.keywordsMatched.length > 0 ? (
                   result.keywordsMatched.map((item) => (
-                    <span
-                      key={item}
-                      className="rounded-full border border-emerald-500/40 bg-emerald-500/10 px-2 py-1 text-xs"
-                    >
+                    <span key={item} className="rounded-full border border-emerald-200/30 bg-emerald-200/10 px-2 py-1 text-xs">
                       {item}
                     </span>
                   ))
@@ -281,10 +273,7 @@ export default function HeroSpacePage() {
               <CardContent className="flex flex-wrap gap-2">
                 {result.keywordsMissing.length > 0 ? (
                   result.keywordsMissing.map((item) => (
-                    <span
-                      key={item}
-                      className="rounded-full border border-amber-500/40 bg-amber-500/10 px-2 py-1 text-xs"
-                    >
+                    <span key={item} className="rounded-full border border-amber-200/30 bg-amber-200/10 px-2 py-1 text-xs">
                       {item}
                     </span>
                   ))
@@ -346,7 +335,7 @@ export default function HeroSpacePage() {
               </CardContent>
             </Card>
 
-            <Card className="md:col-span-2 border border-primary/30 bg-gradient-to-br from-emerald-300/10 via-transparent to-amber-300/10">
+            <Card className="md:col-span-2 border border-border/70 bg-gradient-to-br from-indigo-300/10 via-transparent to-amber-300/10">
               <CardHeader>
                 <CardTitle>Fix My Resume</CardTitle>
               </CardHeader>
@@ -411,7 +400,7 @@ export default function HeroSpacePage() {
                     <div className="rounded-md border border-border/70 p-3">
                       <p className="mb-2 text-sm font-medium">Generated ATS-friendly resume</p>
                       <textarea
-                        className="min-h-72 w-full rounded-md border border-border bg-background p-3 text-sm"
+                        className="min-h-72 w-full rounded-md border border-border/80 bg-black/35 p-3 text-sm"
                         value={fixResult.fixedResume}
                         onChange={(event) =>
                           setFixResult((prev) =>

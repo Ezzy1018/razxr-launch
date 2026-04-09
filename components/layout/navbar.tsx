@@ -7,7 +7,7 @@ export function Navbar() {
         <Link href="/" className="text-sm font-semibold tracking-[0.2em] text-foreground/95">
           RAZXR.
         </Link>
-        <nav className="flex items-center gap-4 text-sm text-muted-foreground/90">
+        <nav className="hidden items-center gap-4 text-sm text-muted-foreground/90 md:flex">
           <Link className="nav-link transition-colors hover:text-foreground" href="/assess">
             Assess
           </Link>
@@ -27,6 +27,12 @@ export function Navbar() {
             Talent
           </Link>
         </nav>
+        <Link
+          href="/hero-space"
+          className="nav-link text-xs font-medium tracking-[0.14em] text-muted-foreground/90 transition-colors hover:text-foreground md:hidden"
+        >
+          HERO SPACE
+        </Link>
       </div>
     </header>
   );

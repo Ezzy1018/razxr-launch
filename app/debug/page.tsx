@@ -23,10 +23,11 @@ export default function DebugPage() {
   }, []);
 
   return (
-    <section className="mx-auto flex w-full max-w-6xl flex-col gap-5 px-4 py-8 sm:px-6">
-      <header>
-        <h1 className="text-3xl font-semibold tracking-tight">Debugging Chamber</h1>
-        <p className="text-sm text-muted-foreground">
+    <section className="page-wrap">
+      <header className="page-hero">
+        <p className="page-kicker">Failure Lab</p>
+        <h1 className="page-title text-3xl">Debugging Chamber</h1>
+        <p className="page-subtitle text-sm">
           Fix broken code paths, explain root causes, and improve your debugging score.
         </p>
       </header>

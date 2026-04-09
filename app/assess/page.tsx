@@ -70,11 +70,12 @@ export default function AssessPage() {
   }
 
   return (
-    <section className="mx-auto flex w-full max-w-5xl flex-col gap-5 px-4 py-8 sm:px-6">
-      <header className="flex flex-wrap items-end justify-between gap-3">
+    <section className="page-wrap max-w-5xl">
+      <header className="page-hero flex flex-wrap items-end justify-between gap-3">
         <div>
-          <h1 className="text-3xl font-semibold tracking-tight">Onboarding Assessment</h1>
-          <p className="text-sm text-muted-foreground">
+          <p className="page-kicker">Assessment</p>
+          <h1 className="page-title text-3xl">Onboarding Assessment</h1>
+          <p className="page-subtitle text-sm">
             Complete 3 coding prompts. We use this to set your starting level.
           </p>
         </div>
@@ -110,7 +111,7 @@ export default function AssessPage() {
       </div>
 
       {result ? (
-        <div className="rounded-lg border border-primary/40 bg-primary/10 p-4 text-sm">
+        <div className="section-block border-primary/40 bg-primary/10 text-sm">
           <p className="font-medium">
             Level: {result.level.toUpperCase()} • Score: {result.score}
           </p>

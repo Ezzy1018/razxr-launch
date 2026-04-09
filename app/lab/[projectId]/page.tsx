@@ -64,11 +64,11 @@ export default function LabProjectPage() {
   const language = useMemo(() => inferLanguage(selectedFile), [selectedFile]);
 
   if (loading) {
-    return <section className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">Loading sprint lab...</section>;
+    return <section className="page-wrap">Loading sprint lab...</section>;
   }
 
   if (!data) {
-    return <section className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">Project not found.</section>;
+    return <section className="page-wrap">Project not found.</section>;
   }
 
   async function submitWork() {
@@ -109,10 +109,11 @@ export default function LabProjectPage() {
   }
 
   return (
-    <section className="mx-auto flex w-full max-w-[1200px] flex-col gap-5 px-4 py-8 sm:px-6">
-      <header className="space-y-1">
-        <h1 className="text-3xl font-semibold tracking-tight">{data.project.title}</h1>
-        <p className="text-sm text-muted-foreground">{data.project.description}</p>
+    <section className="page-wrap max-w-[1200px]">
+      <header className="page-hero space-y-1">
+        <p className="page-kicker">Sprint Lab</p>
+        <h1 className="page-title text-3xl">{data.project.title}</h1>
+        <p className="page-subtitle text-sm">{data.project.description}</p>
       </header>
 
       <div className="grid gap-4 lg:grid-cols-[240px_1fr_320px]">
@@ -153,7 +154,7 @@ export default function LabProjectPage() {
             </CardHeader>
             <CardContent className="space-y-3">
               <textarea
-                className="min-h-24 w-full rounded-md border border-border bg-background p-3 text-sm"
+                className="field-dark min-h-24"
                 value={note}
                 onChange={(event) => setNote(event.target.value)}
                 placeholder="Summarize what you changed and why..."

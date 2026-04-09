@@ -42,15 +42,16 @@ export default function DashboardPage() {
   }, []);
 
   if (!data) {
-    return <section className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">Loading dashboard...</section>;
+    return <section className="page-wrap">Loading dashboard...</section>;
   }
 
   return (
-    <section className="mx-auto flex w-full max-w-6xl flex-col gap-5 px-4 py-8 sm:px-6">
-      <header className="flex flex-wrap items-end justify-between gap-3">
+    <section className="page-wrap">
+      <header className="page-hero flex flex-wrap items-end justify-between gap-3">
         <div>
-          <h1 className="text-3xl font-semibold tracking-tight">Your Dashboard</h1>
-          <p className="text-sm text-muted-foreground">
+          <p className="page-kicker">Control Center</p>
+          <h1 className="page-title text-3xl">Your Dashboard</h1>
+          <p className="page-subtitle text-sm">
             Track sprint momentum, debug performance, and overall readiness.
           </p>
         </div>

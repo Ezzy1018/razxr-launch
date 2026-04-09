@@ -27,17 +27,17 @@ export function QuestionCard({
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-3">
-        <pre className="overflow-auto rounded-md border border-border/70 bg-black/20 p-3 text-xs text-muted-foreground">
+        <pre className="overflow-auto rounded-md border border-border/70 bg-black/25 p-3 text-xs text-muted-foreground">
           {question.starterCode}
         </pre>
         <textarea
-          className="min-h-40 w-full rounded-md border border-border bg-background p-3 text-sm outline-none ring-offset-background focus:border-primary"
+          className="field-dark min-h-40"
           value={answer}
           onChange={(event) => onChange(event.target.value)}
           placeholder="Write your solution here..."
         />
         <textarea
-          className="min-h-24 w-full rounded-md border border-border bg-background p-3 text-sm outline-none ring-offset-background focus:border-primary"
+          className="field-dark min-h-24"
           value={explanation}
           onChange={(event) => onExplanationChange(event.target.value)}
           placeholder="Explain your approach briefly..."

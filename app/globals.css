@@ -174,3 +174,91 @@
     color: #fff;
   }
 }
+
+@layer components {
+  .page-wrap {
+    position: relative;
+    isolation: isolate;
+    margin-inline: auto;
+    display: flex;
+    width: 100%;
+    max-width: 72rem;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding: 2rem 1rem 2.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .page-wrap {
+      padding-inline: 1.5rem;
+    }
+  }
+
+  .page-wrap::before {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(circle at 7% 7%, rgba(252, 199, 118, 0.12), transparent 33%),
+      radial-gradient(circle at 95% 88%, rgba(99, 118, 255, 0.1), transparent 35%);
+  }
+
+  .page-hero {
+    border-radius: 1rem;
+    border: 1px solid color-mix(in oklab, var(--color-border) 85%, transparent);
+    background: linear-gradient(135deg, rgba(255, 194, 110, 0.08), rgba(255, 194, 110, 0) 42%),
+      color-mix(in oklab, var(--color-card) 82%, transparent);
+    padding: 1.25rem;
+    backdrop-filter: blur(6px);
+  }
+
+  .page-kicker {
+    font-size: 0.68rem;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: color-mix(in oklab, var(--color-muted-foreground) 88%, #fff 12%);
+  }
+
+  .page-title {
+    margin-top: 0.25rem;
+    font-family: var(--font-space-grotesk), ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: clamp(1.85rem, 1.3rem + 1.6vw, 3.2rem);
+    line-height: 1.08;
+    letter-spacing: -0.03em;
+    color: color-mix(in oklab, var(--color-foreground) 96%, #fff 4%);
+  }
+
+  .page-subtitle {
+    margin-top: 0.4rem;
+    max-width: 44rem;
+    color: var(--color-muted-foreground);
+    font-size: 0.98rem;
+    line-height: 1.65;
+  }
+
+  .field-dark {
+    width: 100%;
+    border-radius: 0.7rem;
+    border: 1px solid color-mix(in oklab, var(--color-border) 82%, transparent);
+    background: rgba(3, 5, 10, 0.45);
+    padding: 0.7rem 0.85rem;
+    font-size: 0.9rem;
+    color: var(--color-foreground);
+    outline: none;
+    transition: border-color 180ms var(--ease-out-premium), box-shadow 180ms var(--ease-out-premium);
+  }
+
+  .field-dark:focus {
+    border-color: rgba(255, 255, 255, 0.45);
+    box-shadow: 0 0 0 3px rgba(255, 214, 145, 0.12);
+  }
+
+  .section-block {
+    border-radius: 0.9rem;
+    border: 1px solid color-mix(in oklab, var(--color-border) 82%, transparent);
+    background: color-mix(in oklab, var(--color-card) 83%, transparent);
+    padding: 1rem;
+  }
+}

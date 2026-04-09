@@ -127,15 +127,15 @@ export default function HeroSpacePage() {
   }
 
   return (
-    <section className="relative isolate mx-auto flex w-full max-w-6xl flex-col gap-6 overflow-hidden px-4 py-8 sm:px-6">
+    <section className="page-wrap relative max-w-6xl gap-6 overflow-hidden">
       <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,_rgba(255,195,113,0.2),_transparent_44%),radial-gradient(circle_at_bottom_right,_rgba(116,132,255,0.16),_transparent_38%)]" />
 
-      <header className="space-y-2">
-        <p className="text-xs uppercase tracking-[0.24em] text-muted-foreground">Hero Space</p>
-        <h1 className="max-w-4xl text-4xl font-semibold tracking-tight sm:text-5xl">
+      <header className="page-hero space-y-2">
+        <p className="page-kicker">Hero Space</p>
+        <h1 className="page-title max-w-4xl text-4xl sm:text-5xl">
           Why resumes fail ATS filters, and exactly how to fix them.
         </h1>
-        <p className="max-w-2xl text-sm text-muted-foreground sm:text-base">
+        <p className="page-subtitle max-w-2xl text-sm sm:text-base">
           Upload your resume file or paste text to get keyword coverage, rejection risks,
           rewrites, and Gemini coaching for a better shortlist chance.
         </p>
@@ -191,7 +191,7 @@ export default function HeroSpacePage() {
           </CardHeader>
           <CardContent>
             <textarea
-              className="min-h-80 w-full rounded-md border border-border/80 bg-black/35 p-3 text-sm outline-none transition focus:border-white/60"
+              className="field-dark min-h-80"
               value={resumeText}
               onChange={(event) => setResumeText(event.target.value)}
               placeholder="Paste resume text..."
@@ -205,7 +205,7 @@ export default function HeroSpacePage() {
           </CardHeader>
           <CardContent>
             <textarea
-              className="min-h-80 w-full rounded-md border border-border/80 bg-black/35 p-3 text-sm outline-none transition focus:border-white/60"
+              className="field-dark min-h-80"
               value={jobDescription}
               onChange={(event) => setJobDescription(event.target.value)}
               placeholder="Paste job description..."
@@ -400,7 +400,7 @@ export default function HeroSpacePage() {
                     <div className="rounded-md border border-border/70 p-3">
                       <p className="mb-2 text-sm font-medium">Generated ATS-friendly resume</p>
                       <textarea
-                        className="min-h-72 w-full rounded-md border border-border/80 bg-black/35 p-3 text-sm"
+                        className="field-dark min-h-72"
                         value={fixResult.fixedResume}
                         onChange={(event) =>
                           setFixResult((prev) =>

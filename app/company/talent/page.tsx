@@ -44,17 +44,18 @@ export default function CompanyTalentPage() {
   );
 
   return (
-    <section className="mx-auto flex w-full max-w-6xl flex-col gap-5 px-4 py-8 sm:px-6">
-      <header>
-        <h1 className="text-3xl font-semibold tracking-tight">Talent Browse</h1>
-        <p className="text-sm text-muted-foreground">
+    <section className="page-wrap">
+      <header className="page-hero">
+        <p className="page-kicker">Talent</p>
+        <h1 className="page-title text-3xl">Talent Browse</h1>
+        <p className="page-subtitle text-sm">
           Filter candidates by readiness and inspect public performance passports.
         </p>
       </header>
 
       <div className="flex flex-wrap gap-3">
         <select
-          className="rounded-md border border-border bg-background px-3 py-2 text-sm"
+          className="field-dark w-44"
           value={level}
           onChange={(event) => setLevel(event.target.value)}
         >
@@ -65,7 +66,7 @@ export default function CompanyTalentPage() {
         </select>
 
         <input
-          className="w-44 rounded-md border border-border bg-background px-3 py-2 text-sm"
+          className="field-dark w-44"
           type="number"
           min={0}
           max={100}

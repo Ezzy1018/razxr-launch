@@ -39,14 +39,15 @@ export default function PassportPage() {
   }, [uid]);
 
   if (!data) {
-    return <section className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">Loading passport...</section>;
+    return <section className="page-wrap">Loading passport...</section>;
   }
 
   return (
-    <section className="mx-auto flex w-full max-w-6xl flex-col gap-5 px-4 py-8 sm:px-6">
-      <header>
-        <h1 className="text-3xl font-semibold tracking-tight">Skill Passport</h1>
-        <p className="text-sm text-muted-foreground">UID: {data.uid}</p>
+    <section className="page-wrap">
+      <header className="page-hero">
+        <p className="page-kicker">Passport</p>
+        <h1 className="page-title text-3xl">Skill Passport</h1>
+        <p className="page-subtitle text-sm">UID: {data.uid}</p>
       </header>
 
       <div className="grid gap-3 md:grid-cols-4">
@@ -56,7 +57,7 @@ export default function PassportPage() {
         <StatBadge label="Debug score" value={data.debuggingScore} />
       </div>
 
-      <div className="rounded-lg border border-border/70 bg-card p-3">
+      <div className="section-block">
         <p className="mb-2 text-sm text-muted-foreground">
           Languages: {data.topLanguages.join(", ") || "No evidence yet"}
         </p>

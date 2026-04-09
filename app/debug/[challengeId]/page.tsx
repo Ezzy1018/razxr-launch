@@ -67,14 +67,15 @@ export default function DebugChallengePage() {
   }
 
   if (!challenge) {
-    return <section className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6">Loading challenge...</section>;
+    return <section className="page-wrap">Loading challenge...</section>;
   }
 
   return (
-    <section className="mx-auto flex w-full max-w-[1100px] flex-col gap-5 px-4 py-8 sm:px-6">
-      <header>
-        <h1 className="text-3xl font-semibold tracking-tight">{challenge.title}</h1>
-        <p className="text-sm text-muted-foreground">
+    <section className="page-wrap max-w-[1100px]">
+      <header className="page-hero">
+        <p className="page-kicker">Debug Challenge</p>
+        <h1 className="page-title text-3xl">{challenge.title}</h1>
+        <p className="page-subtitle text-sm">
           {challenge.language} • {challenge.difficulty}
         </p>
       </header>
@@ -87,7 +88,7 @@ export default function DebugChallengePage() {
         </CardHeader>
         <CardContent className="space-y-3">
           <textarea
-            className="min-h-28 w-full rounded-md border border-border bg-background p-3 text-sm"
+            className="field-dark min-h-28"
             value={explanation}
             onChange={(event) => setExplanation(event.target.value)}
             placeholder="Root cause, fix strategy, and edge cases..."

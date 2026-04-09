@@ -8,22 +8,22 @@ export function Navbar() {
           RAZXR.
         </Link>
         <nav className="flex items-center gap-4 text-sm text-muted-foreground/90">
-          <Link className="transition-colors hover:text-foreground" href="/assess">
+          <Link className="nav-link transition-colors hover:text-foreground" href="/assess">
             Assess
           </Link>
-          <Link className="transition-colors hover:text-foreground" href="/dashboard">
+          <Link className="nav-link transition-colors hover:text-foreground" href="/dashboard">
             Dashboard
           </Link>
-          <Link className="transition-colors hover:text-foreground" href="/debug">
+          <Link className="nav-link transition-colors hover:text-foreground" href="/debug">
             Debug
           </Link>
-          <Link className="transition-colors hover:text-foreground" href="/hero-space">
+          <Link className="nav-link transition-colors hover:text-foreground" href="/hero-space">
             Hero Space
           </Link>
-          <Link className="transition-colors hover:text-foreground" href="/company">
+          <Link className="nav-link transition-colors hover:text-foreground" href="/company">
             Company
           </Link>
-          <Link className="transition-colors hover:text-foreground" href="/company/talent">
+          <Link className="nav-link transition-colors hover:text-foreground" href="/company/talent">
             Talent
           </Link>
         </nav>

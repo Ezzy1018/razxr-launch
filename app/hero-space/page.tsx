@@ -18,6 +18,7 @@ export default function HeroSpacePage() {
   const [error, setError] = useState<string | null>(null);
   const [uploadError, setUploadError] = useState<string | null>(null);
   const [uploadStatus, setUploadStatus] = useState<string | null>(null);
+  const [dragActive, setDragActive] = useState(false);
   const [result, setResult] = useState<HeroAtsAnalysis | null>(null);
   const [fixingResume, setFixingResume] = useState(false);
   const [fixError, setFixError] = useState<string | null>(null);
@@ -123,6 +124,7 @@ export default function HeroSpacePage() {
 
     setResumeText(payload.data.extractedText);
     setUploadStatus(`Loaded ${payload.data.fileName}`);
+    setDragActive(false);
     setUploading(false);
   }
 
@@ -146,7 +148,33 @@ export default function HeroSpacePage() {
           <CardTitle>Upload Resume (Document or Image)</CardTitle>
         </CardHeader>
         <CardContent className="space-y-3">
-          <div className="rounded-xl border border-dashed border-white/25 bg-black/25 p-4">
+          <div
+            className={`rounded-xl border border-dashed p-4 transition-all duration-200 ${
+              dragActive
+                ? "border-amber-200/60 bg-amber-100/10 shadow-[0_0_0_4px_rgba(255,205,132,0.14)]"
+                : "border-white/25 bg-black/25"
+            }`}
+            onDragEnter={(event) => {
+              event.preventDefault();
+              setDragActive(true);
+            }}
+            onDragOver={(event) => {
+              event.preventDefault();
+              setDragActive(true);
+            }}
+            onDragLeave={(event) => {
+              event.preventDefault();
+              setDragActive(false);
+            }}
+            onDrop={(event) => {
+              event.preventDefault();
+              setDragActive(false);
+              const file = event.dataTransfer.files?.[0];
+              if (file) {
+                void handleResumeUpload(file);
+              }
+            }}
+          >
             <p className="text-sm text-muted-foreground">
               Use file upload for ATS checks instead of manual text copy. We run AI vision
               extraction for resume images before scoring.
@@ -155,6 +183,9 @@ export default function HeroSpacePage() {
               <Button size="lg" variant="secondary" disabled={uploading} onClick={() => fileInputRef.current?.click()}>
                 {uploading ? "Reading file..." : "Upload resume file"}
               </Button>
+              {dragActive ? (
+                <p className="text-xs text-amber-100">Drop your resume to import instantly</p>
+              ) : null}
               <p className="text-xs text-muted-foreground">
                 Accepted: .pdf, .docx, .png, .jpg, .jpeg, .webp, .heic (up to 8 MB)
               </p>

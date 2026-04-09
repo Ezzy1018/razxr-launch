@@ -39,7 +39,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <TooltipProvider delay={180}>
           <Navbar />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1 motion-safe:animate-[page-enter_360ms_var(--ease-out-premium)]">{children}</main>
           <Footer />
           <Toaster richColors position="top-right" />
         </TooltipProvider>
